@@ -1,24 +1,30 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# <私たちはソムリエ>
 
-Things you may want to cover:
+## サイト概要
+### サイトテーマ
+<色々なお酒の飲んだ感想などを含めたみんなで完成させる図鑑（レビューサイト）。>
 
-* Ruby version
+### テーマを選んだ理由
+<お酒が好きだがあまり飲んだことのないジャンルのお酒を飲むときに、何から飲んでみたら良いかや、オススメなど色々なブログやAmazonなどのECサイトのレビューなどを参考にしているが、一つのサイトで完結できないかと思ったことがテーマの理由です。また、この人の感想はタメになるなと思った人のSNSに飛んでもお酒の感想だけを並べているわけではないため、図鑑のような視覚的に色々選びやすいものが欲しかったことを踏まえこのテーマにしました。>
 
-* System dependencies
+### ターゲットユーザ
+<お酒（ジャンルを問わず）好きな人、プレゼントでお酒を選ぶ人、慣れない飲食店で飲んだことのないお酒を詳しく知りたい人>
 
-* Configuration
+### 主な利用シーン
+<飲食店で興味のあるお酒を見つけ注文する時、覚えておきたいお酒と出会った時、おすすめの食べ合わせなどを発見した時>
 
-* Database creation
+## 設計書
+<...>
 
-* Database initialization
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 使用素材
+- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
+- 使用しない場合は、使用素材の項目をREADMEから削除してください。
