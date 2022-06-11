@@ -1,0 +1,10 @@
+<% if current_user %>
+ <h2>マイページ</h2>
+ <% else %>
+ <h2><%= user.name %>さんのページ</h2>
+<% end %>
+<%= attachment_image_tag @user, :image, format: 'jpeg', fallback: "no_image.jpg", size: "70x70" %>
+<%= @user.email %>
+<%= @user.name %>
+<%= @user.introduction %>
+<%= link_to "プロフィールを編集する", edit_users_path %>

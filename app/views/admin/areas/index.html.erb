@@ -1,0 +1,18 @@
+<h2>エリア追加・一覧</h2>
+<%= form_with model: @area, url: admin_areas_path, local:true do |f| %>
+ <%= f.label :エリア名 %>
+ <%= f.text_field :name, placeholder: "エリア名" %>
+ <%= f.submit "追加" %>
+<% end %>
+
+<h4>エリア一覧</h4>
+<table class="table table-hover">
+  <tbody>
+    <% @areas.each do |area| %>
+    <tr>
+      <td><%= area.name %></td>
+      <td><%= link_to "編集する", admin_edit_areas_path(area.id) %></td>
+    </tr>
+  </tbody>
+  <% end %>
+</table>

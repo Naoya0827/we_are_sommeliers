@@ -5,9 +5,22 @@ Rails.application.routes.draw do
     passwords: 'admins/passwords',
     registrations: 'admins/registrations'
   }
+
+  patch 'users/withdraw' => 'users#withdraw'
+  resource :users, only:[:show, :edit, :update]
+
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     passwords: 'users/passwords',
     registrations: 'users/registrations'
   }
+
+ namespace :admin do
+   get 'areas' => 'areas#index'
+   get 'areas/edit/:id' => 'areas#edit', as:'edit_areas'
+   resource :areas, only:[:create, :update]
+   get 'genres' => 'genres#index'
+   get 'genres/edit/:id' => 'genres#edit', as:'edit_genres'
+   resource :genres, only:[:create, :update, :index]
+ end
 end
