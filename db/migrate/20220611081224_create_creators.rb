@@ -4,6 +4,7 @@ class CreateCreators < ActiveRecord::Migration[6.1]
       t.integer :area_id
       t.string :name
       t.text :introduction
+      t.string :url
       t.timestamps
     end
   end

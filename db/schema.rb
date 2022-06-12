@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2022_06_11_081302) do
     t.integer "area_id"
     t.string "name"
     t.text "introduction"
+    t.string "url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -42,7 +43,7 @@ ActiveRecord::Schema.define(version: 2022_06_11_081302) do
     t.integer "genre_id"
     t.integer "creator_id"
     t.string "name"
-    t.integer "alcohol"
+    t.string "alcohol"
     t.text "introduction"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

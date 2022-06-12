@@ -14,6 +14,9 @@ Rails.application.routes.draw do
     passwords: 'users/passwords',
     registrations: 'users/registrations'
   }
+  resource :creators, only:[:new, :index, :edit, :create, :update]
+  get 'creators/:id' => 'creators#show', as:'creator'
+
 
  namespace :admin do
    get 'areas' => 'areas#index'
