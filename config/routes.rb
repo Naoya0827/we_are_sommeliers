@@ -20,6 +20,11 @@ Rails.application.routes.draw do
   get 'creators/edit/:id' => 'creators#edit', as:'edit_creators'
   patch 'creators/:id' => 'creators#update', as:'update_creators'
 
+  resource :drinks, only:[:new, :index, :create]
+  get 'drinks/:id' => 'drinks#show', as:'drink'
+  get 'drinks/edit/:id' => 'drinks#edit', as:'edit_drinks'
+  patch 'drinks/:id' => 'drinks#update', as:'update_drinks'
+
 
  namespace :admin do
    get 'areas' => 'areas#index'

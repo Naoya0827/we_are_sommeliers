@@ -1,0 +1,28 @@
+<h2>お酒を登録する</h2>
+<%= form_with model: @drink, url: drinks_path, local:true do |f| %>
+<table class="">
+  <tbody>
+    <tr>
+      <td>商品名</td>
+      <td><%= f.text_field :name %></td>
+    </tr>
+    <tr>
+      <td>アルコール</td>
+      <td><%= f.text_field :alcohol %></td>
+    </tr>
+    <tr>
+      <td>販売元</td>
+      <td><%= f.collection_select :creator_id, Creator.all, :id, :name, include_blank: '販売元を選ぶ' %></td>
+    </tr>
+    <tr>
+      <td>ジャンル</td>
+      <td><%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: 'ジャンルを選ぶ' %></td>
+    </tr>
+    <tr>
+      <td>簡易説明</td>
+      <td><%= f.text_area :introduction %></td>
+    </tr>
+  </tbody>
+</table>
+<%= f.submit '登録する' %>
+<% end %>
