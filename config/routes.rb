@@ -14,8 +14,11 @@ Rails.application.routes.draw do
     passwords: 'users/passwords',
     registrations: 'users/registrations'
   }
-  resource :creators, only:[:new, :index, :edit, :create, :update]
+
+  resource :creators, only:[:new, :index, :create, :update]
   get 'creators/:id' => 'creators#show', as:'creator'
+  get 'creators/edit/:id' => 'creators#edit', as:'edit_creators'
+  patch 'creators/:id' => 'creators#update', as:'update_creators'
 
 
  namespace :admin do

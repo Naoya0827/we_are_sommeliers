@@ -13,6 +13,16 @@ class CreatorsController < ApplicationController
     @creator = Creator.find(params[:id])
   end
 
+  def edit
+     @creator = Creator.find(params[:id])
+  end
+
+  def update
+     @creator = Creator.find(params[:id])
+     @creator.update(creator_params)
+     redirect_to creator_path(@creator.id)
+  end
+
   private
   def creator_params
     params.require(:creator).permit(:name, :url, :area_id, :introduction)

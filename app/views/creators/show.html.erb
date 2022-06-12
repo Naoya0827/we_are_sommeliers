@@ -1,5 +1,6 @@
 <h2><%= @creator.name %></h2>
+<%= @creator.area.name %>
 <%= link_to @creator.url, @creator.url %>
 <%= @creator.introduction %>
-
+<%= link_to "情報を編集する", edit_creators_path(@creator.id) %>
 <h4>ラインナップ</h4>
