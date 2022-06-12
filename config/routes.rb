@@ -25,6 +25,10 @@ Rails.application.routes.draw do
   get 'drinks/edit/:id' => 'drinks#edit', as:'edit_drinks'
   patch 'drinks/:id' => 'drinks#update', as:'update_drinks'
 
+  resource :reviews, only:[:new, :index, :create]
+  get 'reviews/:id' => 'reviews#show', as:'review'
+
+
 
  namespace :admin do
    get 'areas' => 'areas#index'

@@ -17,3 +17,37 @@
 </table>
 <%= @drink.introduction %>
 <%= link_to "情報を編集する", edit_drinks_path(@drink.id) %>
+
+<h4><%= @drink.name %>のレビューを投稿する</h4>
+<%= form_with model: @review, url: reviews_path, local:true do |f| %>
+<%= f.hidden_field :drink_id, :value => @drink.id %>
+<%= f.hidden_field :user_id, :value => @user.id %>
+<div class="form-group">
+  <%= f.attachment_field :image, placeholder: "写真を選択" %>
+</div>
+<div class="form-group">
+  <%= f.label :レビュータイトル %><br>
+  <%= f.text_field :title %>
+</div>
+<table class="">
+  <thead>
+    <tr>
+      <th>レビュー</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= f.text_area :impression %></td>
+    </tr>
+  </tbody>
+</table>
+<table class="">
+  <tbody>
+    <tr>
+      <td>★</td>
+      <td><%= f.text_field :rating %></td>
+    </tr>
+  </tbody>
+</table>
+<%= f.submit "投稿する" %>
+<% end %>

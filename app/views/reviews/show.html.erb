@@ -1,0 +1,7 @@
+<h4><%= @review.drink.name %>のレビュー</h4>
+<h3><%= @review.title %></h3><br>
+<%= attachment_image_tag @review, :image, :fill, 300, 220, fallback: "no_image.jpg" %><br>
+<%= @review.rating %>
+<%= attachment_image_tag @user, :image, :fill, 200, 180, fallback: "no_image.jpeg" %>
+<%= @user.name %><br>
+<%= @review.impression %>
