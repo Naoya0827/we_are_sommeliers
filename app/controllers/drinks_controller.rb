@@ -16,6 +16,7 @@ class DrinksController < ApplicationController
     @drink = Drink.find(params[:id])
     @review = Review.new
     @user = current_user
+    @reviews = Review.where(drink_id: @drink.id)
   end
 
   def edit

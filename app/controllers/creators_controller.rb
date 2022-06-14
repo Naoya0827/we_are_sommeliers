@@ -11,6 +11,7 @@ class CreatorsController < ApplicationController
 
   def show
     @creator = Creator.find(params[:id])
+    @drinks = Drink.where(creator_id: @creator.id)
   end
 
   def edit
