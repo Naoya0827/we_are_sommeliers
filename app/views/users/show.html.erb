@@ -7,4 +7,12 @@
 <%= @user.email %>
 <%= @user.name %>
 <%= @user.introduction %>
-<%= link_to "プロフィールを編集する", edit_users_path %>
+<%= link_to "プロフィールを編集する", edit_users_path %><br>
+
+<% @reviews.each do |review| %>
+★<%= review.rating %>
+<%= link_to review.title, review_path(review.id) %><br>
+<%= attachment_image_tag review, :image, :fill, 150, 100, fallback: "no_image.jpg" %>
+<%= review.impression %><br>
+<%= link_to review.drink.name, drink_path(review.drink.id) %>
+<% end %>

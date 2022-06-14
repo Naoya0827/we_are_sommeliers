@@ -3,5 +3,5 @@
 <%= attachment_image_tag @review, :image, :fill, 300, 220, fallback: "no_image.jpg" %><br>
 ★<%= @review.rating %>
 <%= attachment_image_tag @review.user, :image, :fill, 200, 180, fallback: "no_image.jpeg" %>
-<%= @review.user.name %><br>
+<%= link_to @review.user.name, users_path(@review.user.id) %><br>
 <%= @review.impression %>
