@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   root to:'homes#top'
 
+
   resource :creators, only:[:new, :index, :create, :update]
   get 'creators' => 'creators#index'
   get 'creators/:id' => 'creators#show', as:'creator'
@@ -24,6 +25,7 @@ Rails.application.routes.draw do
   patch 'creators/:id' => 'creators#update', as:'update_creators'
 
   resource :drinks, only:[:new, :index, :create]
+  get 'drinks' => 'drinks#index'
   get 'drinks/:id' => 'drinks#show', as:'drink'
   get 'drinks/edit/:id' => 'drinks#edit', as:'edit_drinks'
   patch 'drinks/:id' => 'drinks#update', as:'update_drinks'
