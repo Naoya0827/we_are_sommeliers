@@ -1,0 +1,41 @@
+// Place all the styles related to the homes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.box1 {
+  width: 60%;
+  height: 250px;
+  background-color: #F5F5F5;
+  // border: solid #999999;
+}
+
+.box2 {
+  width: 40%;
+  height: 250px;
+  background-image: url(23098243_s.jpg);
+  background-size: 100% 100%;
+  // border: solid #999999;
+}
+
+.box3 {
+  width: 40%;
+  height: 250px;
+  background-image: url(22156590_s.jpg);
+  background-size: 100% 100%;
+  // border: solid #999999;
+}
+
+.mt-7 {
+  margin: 60px;
+}
+
+.mt-95px {
+  margin: 95px;
+}
+
+p {
+  font-size: 25px;
+}
+
+.fs {
+  font-size: 60px;
+}

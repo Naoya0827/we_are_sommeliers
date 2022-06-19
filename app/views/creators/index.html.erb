@@ -1,0 +1,15 @@
+<div class="row border-bottom">
+  <div class="col mt-3"><h2>販売元一覧・検索</h2></div>
+  <div class="col"></div>
+</div>
+
+
+
+<div class="row mt-3">
+  <% @creators.each do |creator| %>
+  <div class="text-center ml-3 mb-3 border c-box">
+    <%= link_to creator.name, creator_path(creator.id), class:"text-dark" %><br>
+    <%= link_to creator.url, creator.url, class:"text-dark" %>
+  </div>
+  <% end %>
+</div>

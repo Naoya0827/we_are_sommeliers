@@ -10,11 +10,11 @@
             <% if user_signed_in? %>
             <li class="nav-item">
               <%= link_to 'お酒を探す', class: 'nav-link text-dark' %><br>
-              <%= link_to '販売元を探す', class: 'nav-link text-dark' %>
+              <%= link_to '販売元を探す', creators_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
               <%= link_to 'お酒を登録する', class: 'nav-link text-dark' %><br>
-              <%= link_to '販売元を登録する', class: 'nav-link text-dark' %>
+              <%= link_to '販売元を登録する', new_creators_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
               <%= link_to 'マイページ', users_path(current_user.id), class: 'nav-link text-dark' %>

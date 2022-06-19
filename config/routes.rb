@@ -15,7 +15,10 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
+  root to:'homes#top'
+
   resource :creators, only:[:new, :index, :create, :update]
+  get 'creators' => 'creators#index'
   get 'creators/:id' => 'creators#show', as:'creator'
   get 'creators/edit/:id' => 'creators#edit', as:'edit_creators'
   patch 'creators/:id' => 'creators#update', as:'update_creators'

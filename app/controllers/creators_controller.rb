@@ -24,6 +24,10 @@ class CreatorsController < ApplicationController
      redirect_to creator_path(@creator.id)
   end
 
+  def index
+    @creators = Creator.all
+  end
+
   private
   def creator_params
     params.require(:creator).permit(:name, :url, :area_id, :introduction)
