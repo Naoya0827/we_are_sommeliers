@@ -18,13 +18,15 @@ Rails.application.routes.draw do
   root to:'homes#top'
 
 
-  resource :creators, only:[:new, :index, :create, :update]
+  resource :creators, only:[:new, :create, :update]
+  get 'creators/search' => 'creators#search', as:'creators_search'
   get 'creators' => 'creators#index'
   get 'creators/:id' => 'creators#show', as:'creator'
   get 'creators/edit/:id' => 'creators#edit', as:'edit_creators'
   patch 'creators/:id' => 'creators#update', as:'update_creators'
 
-  resource :drinks, only:[:new, :index, :create]
+  resource :drinks, only:[:new, :create]
+  get 'drinks/search' => 'drinks#search', as:'drinks_search'
   get 'drinks' => 'drinks#index'
   get 'drinks/:id' => 'drinks#show', as:'drink'
   get 'drinks/edit/:id' => 'drinks#edit', as:'edit_drinks'

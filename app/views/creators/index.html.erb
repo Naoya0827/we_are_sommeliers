@@ -1,12 +1,19 @@
 <div class="row border-bottom">
-  <div class="col mt-3"><h2>販売元一覧・検索</h2></div>
-  <div class="col"></div>
+  <div class="col-8 mt-3"><h2>販売元一覧</h2></div>
+  <div class="col-4 mt-3"><%= link_to "販売元検索画面に移動する", creators_search_path %></div>
 </div>
 
+<!--area検索-->
+<div class="row mt-2 ml-3">
+ <%= form_with url: creators_path, method: :get do %>
+  <%= link_to "全国", creators_path %>
+  <% @areas.each do |area| %>
+   <%= link_to area.name, creators_path(name: area.id) %>
+  <% end %>
+ <% end %>
+</div>
 
-<%= render "creators/serch" %>
-
-<div class="row mt-3">
+<div class="row mt-3 ml-2">
   <% @creators.each do |creator| %>
   <div class="text-center ml-3 mb-3 border c-box">
     <%= link_to creator.name, creator_path(creator.id), class:"text-dark" %><br>

@@ -1,0 +1,25 @@
+<div class="row border-bottom">
+  <div class="col-8 mt-3"><h2>お酒一覧</h2></div>
+  <div class="col-4 mt-3"><%= link_to "お酒検索画面に移動する", drinks_search_path %></div>
+</div>
+
+<!--area検索-->
+<div class="row mt-2 ml-3">
+ <%= form_with url: drinks_path, method: :get do %>
+  <%= link_to "全ジャンル", drinks_path %>
+  <% @genres.each do |genre| %>
+   <%= link_to genre.name, drinks_path(name: genre.id) %>
+  <% end %>
+ <% end %>
+</div>
+
+<div class="row mt-3 ml-2">
+   <% @drinks.each do |drink| %>
+  <div class="text-center ml-3 mb-3 border d-box">
+    <%= link_to drink.name, drink_path(drink.id), class:"text-dark border-bottom d-font" %><br>
+    アルコール度数:<%= drink.alcohol %><br>
+    ジャンル:<%= drink.genre.name %><br>
+    販売元:<%= drink.creator.name %>
+  </div>
+   <% end %>
+</div>

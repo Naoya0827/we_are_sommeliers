@@ -26,20 +26,16 @@ class CreatorsController < ApplicationController
 
   def index
 
-    @creators = Creator.all
 
-    if params[:name].present?
-      @search_creators = Creator.where('name LIKE ?', "%#{params[:name]}%")
-    else
-      @search_creators = Creator.none
-    end
+    @areas = Area.all
+    @creators = params[:name].present? ? Area.find(params[:name]).creators : Creator.all
   end
 
   def search
     if params[:name].present?
-      @creators = Creator.where('name LIKE ?', "%#{params[:name]}%")
+      @search_creators = Creator.where('name LIKE ?', "%#{params[:name]}%")
     else
-      @creators = Creator.none
+      @search_creators = Creator.none
     end
   end
 

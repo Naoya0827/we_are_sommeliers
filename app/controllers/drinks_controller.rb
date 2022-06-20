@@ -10,6 +10,16 @@ class DrinksController < ApplicationController
   end
 
   def index
+    @genres = Genre.all
+    @drinks = params[:name].present? ? Genre.find(params[:name]).drinks : Drink.all
+  end
+
+  def search
+    if params[:name].present?
+      @search_drinks = Drink.where('name LIKE ?', "%#{params[:name]}%")
+    else
+      @search_drinks = Drink.none
+    end
   end
 
   def show
