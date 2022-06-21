@@ -1,7 +1,42 @@
-<h4><%= @review.drink.name %>のレビュー</h4>
-<h3><%= @review.title %></h3><br>
-<%= attachment_image_tag @review, :image, :fill, 300, 220, fallback: "no_image.jpg" %><br>
-★<%= @review.rating %>
-<%= attachment_image_tag @review.user, :image, :fill, 200, 180, fallback: "no_image.jpeg" %>
-<%= link_to @review.user.name, users_path(@review.user.id) %><br>
-<%= @review.impression %>
+<div class="d-flex justify-content-start mt-3 box-x">
+ <div class="box-review">
+  <div class="d-flex justify-content-center">
+    <h3><%= link_to @review.drink.name, drink_path(@review.drink.id) %>のレビュー</h3>
+  </div>
+
+  <dic class="row">
+
+    <div class="col-6">
+     <div class="ml-3">
+      <h3><%= @review.title %></h3>
+     </div>
+     <div class="mt-2 d-flex justify-content-center border border-dark">
+      <%= attachment_image_tag @review, :image, :fill, 300, 220, fallback: "no_image.jpg" %>
+     </div>
+     <div class="d-flex justify-content-center mt-3">
+      <h2>★<%= @review.rating %></h2>
+     </div>
+     投稿ユーザー
+     <div class="user-box border border-dark mt-3 d-flex justify-content-start">
+      <div class="user-icon px-2 py-2">
+        <%= attachment_image_tag @review.user, :image, :fill, 200, 200, fallback: "no_image.jpeg", class:"border rounded" %>
+      </div>
+      <div class="user-name d-flex align-items-center">
+        <h4><%= link_to @review.user.name, users_path(@review.user.id) %></h4>
+      </div>
+     </div>
+   </div>
+
+   <div class="col-6">
+     <div class="impression-box border border-dark">
+       <%= @review.impression %>
+     </div>
+   </div>
+
+  </dic>
+ </div>
+
+ <div class="box-comment border">
+   <!--コメントフォーム-->
+ </div>
+</div>
