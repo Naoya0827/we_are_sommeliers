@@ -2,6 +2,8 @@ class ReviewsController < ApplicationController
   def show
     @review = Review.find(params[:id])
     @user = current_user
+    @review_comment = ReviewComment.new
+    @review_comments = ReviewComment.where(review_id: @review.id)
   end
 
   def edit

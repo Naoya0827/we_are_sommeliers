@@ -38,5 +38,27 @@
 
  <div class="box-comment border">
    <!--コメントフォーム-->
+   <%= form_with model: @review_comment, url: review_comments_path, local:true do |f| %>
+    <%= f.hidden_field :review_id, :value => @review.id %>
+    <%= f.hidden_field :user_id, :value => @user.id %>
+    <%= f.text_area :comment %>
+    <%= f.submit "レビューに対してコメントする" %>
+   <% end %>
+   <div>
+    <% @review_comments.each do |review_comment| %>
+    <div class="border my-2">
+     <div>
+      <%= review_comment.comment %>
+      <% if review_comment.user == current_user %>
+       <%= link_to "コメント削除", review_comments_path(review_comment.id), method: :delete %>
+      <% end %>
+     </div>
+     <div>
+     <%= review_comment.created_at.to_s(:datetime_jp) %>
+     <%= review_comment.user.name %>
+     </div>
+    </div>
+    <% end %>
+   </div>
  </div>
 </div>

@@ -31,9 +31,12 @@ Rails.application.routes.draw do
   get 'drinks/:id' => 'drinks#show', as:'drink'
   get 'drinks/edit/:id' => 'drinks#edit', as:'edit_drinks'
   patch 'drinks/:id' => 'drinks#update', as:'update_drinks'
-
+  delete 'review_comments/:id' => 'review_comments#destroy', as:'review_comments'
+  resource :review_comments, only:[:create, :destroy]
   resource :reviews, only:[:new, :index, :create]
   get 'reviews/:id' => 'reviews#show', as:'review'
+
+
 
 
 
