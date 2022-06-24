@@ -1,0 +1,29 @@
+<div class="row">
+  <h2>お気に入りにしたもの</h2>
+</div>
+
+<div class="row">
+  <h4 class="mr-3">レビュー</h4>
+ <div class="">
+  <table class="">
+    <thead>
+      <tr>
+        <td width="100">投稿者</td>
+        <td width="100">タイトル</td>
+        <td width="150">商品名</td>
+        <td>本文</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @favorites.each do |favorite| %>
+      <tr>
+        <td><%= favorite.review.user.name %></td>
+        <td><%= link_to favorite.review.title, review_path(favorite.review.id) %></td>
+        <td><%= favorite.drink.name %></td>
+        <td><%= favorite.review.impression.truncate(40) %></td>
+      </tr>
+       <% end %>
+    </tbody>
+  </table>
+ </div>
+</div>

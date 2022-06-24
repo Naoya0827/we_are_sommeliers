@@ -4,6 +4,7 @@ class ReviewsController < ApplicationController
     @user = current_user
     @review_comment = ReviewComment.new
     @review_comments = ReviewComment.where(review_id: @review.id)
+    @favorite = Favorite.new
   end
 
   def edit

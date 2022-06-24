@@ -2,12 +2,25 @@
  <div class="box-review">
   <div class="d-flex justify-content-center">
     <h3><%= link_to @review.drink.name, drink_path(@review.drink.id) %>のレビュー</h3>
+    <div class="ml-5">
+      <% if @review.favorited_by?(current_user) %>
+       <%= link_to "お気に入り解除", favoriteclass:"btn btn-denger" %>
+
+      <% else %>
+       <%= form_with model: @favorite, url: favorites_create_path, local:true do |f| %>
+        <%= f.hidden_field :review_id, :value => @review.id %>
+        <%= f.hidden_field :user_id, :value => @user.id %>
+        <%= f.hidden_field :drink_id, :value => @review.drink.id %>
+        <%= f.submit "お気に入りに追加する", class:"btn btn-primary" %>
+       <% end %>
+      <% end %>
+    </div>
   </div>
 
   <dic class="row">
 
     <div class="col-6">
-     <div class="ml-3">
+     <div class="d-flex flex flex-row ml-3">
       <h3><%= @review.title %></h3>
      </div>
      <div class="mt-2 d-flex justify-content-center border border-dark">
@@ -19,10 +32,10 @@
      投稿ユーザー
      <div class="user-box border border-dark mt-3 d-flex justify-content-start">
       <div class="user-icon px-2 py-2">
-        <%= attachment_image_tag @review.user, :image, :fill, 200, 200, fallback: "no_image.jpeg", class:"border rounded" %>
+        <%= attachment_image_tag @review.user, :image, :fill, 150, 100, fallback: "no_image.jpeg", class:"border rounded" %>
       </div>
       <div class="user-name d-flex align-items-center">
-        <h4><%= link_to @review.user.name, users_path(@review.user.id) %></h4>
+        <h5><%= link_to @review.user.name, users_path(@review.user.id) %></h5>
       </div>
      </div>
    </div>
@@ -38,7 +51,7 @@
 
  <div class="box-comment border">
    <!--コメントフォーム-->
-   <%= form_with model: @review_comment, url: review_comments_path, local:true do |f| %>
+   <%= form_with model: @review_comment, url: review_comments_create_path, local:true do |f| %>
     <%= f.hidden_field :review_id, :value => @review.id %>
     <%= f.hidden_field :user_id, :value => @user.id %>
     <%= f.text_area :comment %>

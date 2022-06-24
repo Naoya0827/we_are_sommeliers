@@ -1,7 +1,13 @@
 class UsersController < ApplicationController
   def show
+    @user = User.find(params[:id])
+    @personreviews = Review.where(user_id: @user.id)
+  end
+
+  def my_page
     @user = current_user
     @reviews = Review.where(user_id: @user.id)
+    @favorites = Favorite.where(user_id: @user.id)
   end
 
   def edit
@@ -11,10 +17,20 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     @user.update(user_params)
-    redirect_to users_path(@user)
+    redirect_to my_page_path(@user)
   end
 
   def withdraw
+  end
+
+  def followings
+    user = User.find(params[:id])
+    @users = user.followings
+  end
+
+  def followers
+    user = User.find(params[:id])
+    @users = user.followers
   end
 
   private

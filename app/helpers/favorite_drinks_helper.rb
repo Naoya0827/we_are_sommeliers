@@ -1,0 +1,2 @@
+module FavoriteDrinksHelper
+end

@@ -1,0 +1,29 @@
+<div class="row">
+  <h2>お気に入りにしたもの</h2>
+</div>
+
+<div class="row">
+  <h4 class="mr-3">お酒</h4>
+ <div class="">
+  <table class="">
+    <thead>
+      <tr>
+        <td width="100">商品名</td>
+        <td width="100">ジャンル</td>
+        <td width="150">アルコール</td>
+        <td>本文</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @favorite_drinks.each do |favorite_drink| %>
+      <tr>
+        <td><%= link_to favorite_drink.drink.name, drink_path(favorite_drink.drink.id) %></td>
+        <td><%= favorite_drink.drink.genre.name %></td>
+        <td><%= favorite_drink.drink.alcohol %></td>
+        <td><%= favorite_drink.drink.introduction.truncate(40) %></td>
+      </tr>
+       <% end %>
+    </tbody>
+  </table>
+ </div>
+</div>

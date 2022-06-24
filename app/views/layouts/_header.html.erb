@@ -17,7 +17,7 @@
               <%= link_to '販売元を登録する', new_creators_path, class: 'text-dark' %>
             </li>
             <li class="nav-item">
-              <%= link_to 'マイページ', users_path(current_user.id), class: 'text-dark' %>
+              <%= link_to 'マイページ', my_page_path(current_user.id), class: 'text-dark' %>
             </li>
             <li class="nav-item">
               <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'text-dark' %>

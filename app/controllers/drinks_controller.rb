@@ -25,6 +25,7 @@ class DrinksController < ApplicationController
   def show
     @drink = Drink.find(params[:id])
     @review = Review.new
+    @favorite_drink = FavoriteDrink.new
     @user = current_user
     @reviews = Review.where(drink_id: @drink.id)
   end
