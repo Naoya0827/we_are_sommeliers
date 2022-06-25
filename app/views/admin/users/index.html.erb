@@ -8,6 +8,7 @@
        <th>ユーザーID</th>
        <th>ニックネーム</th>
        <th>メールアドレス</th>
+       <th>ステータス</th>
      </tr>
    </thead>
 
@@ -24,6 +25,11 @@
            <% end %>
        </td>
        <td><%= user.email %></td>
+       <td><% if user.is_active == true %>
+         アカウント停止中
+         <% else %>
+         <div class="text-success">有効</div>
+         <% end %></td>
      </tr>
      <% end %>
    </tbody>

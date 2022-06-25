@@ -1,0 +1,39 @@
+<div class="row">
+  <h4><%= @user.name %>さんの会員情報編集</h4>
+</div>
+<div class="row">
+  <div class="col">
+    <%= form_with model: @user, method: :patch, url: admin_user_path , local:true do |f| %>
+     <table class="table">
+       <tbody>
+         <tr>
+           <td>会員ID</td>
+           <td><%= f.label @user.id %></td>
+         </tr>
+         <tr>
+           <td>ニックネーム</td>
+           <td><%= f.text_field :name %></td>
+         </tr>
+         <tr>
+           <td>メールアドレス</td>
+           <td><%= f.text_field :email %></td>
+         </tr>
+         <tr>
+           <td>紹介文</td>
+           <td><%= f.text_area :introduction %></td>
+         </tr>
+         <tr>
+           <td>会員ステータス</td>
+           <td>
+             <%= f.radio_button :is_active, false, checked: true %>
+             <%= f.label :is_active, "有効", value: false %>
+             <%= f.radio_button :is_active, true %>
+             <%= f.label :is_active, "アカウント停止", value: true %>
+           </td>
+         </tr>
+       </tbody>
+     </table>
+     <%= f.submit "変更を保存" %>
+     <% end %>
+  </div>
+</div>

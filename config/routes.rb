@@ -63,13 +63,11 @@ Rails.application.routes.draw do
 
 
  namespace :admin do
-   get 'areas' => 'areas#index'
-   get 'areas/edit/:id' => 'areas#edit', as:'edit_areas'
-   resource :areas, only:[:create, :update]
-   get 'genres' => 'genres#index'
-   get 'genres/edit/:id' => 'genres#edit', as:'edit_genres'
-   resource :genres, only:[:create, :update, :index]
-   get 'users' => 'users#index', as:'users'
-   get 'users/:id' => 'users#show', as:'user'
+   resources :users, only:[:index, :show, :edit, :update, :destroy]
+   resources :reviews, only:[:index, :show]
+   delete 'reviews/:id' => 'reviews#destroy', as:'reviews_destroy'
+   resources :areas, only:[:index, :create, :edit, :update]
+   resources :genres, only:[:create, :update, :index, :edit]
+   resources :review_comments, only:[:destroy]
  end
 end

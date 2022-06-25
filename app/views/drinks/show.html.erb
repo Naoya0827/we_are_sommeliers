@@ -22,7 +22,8 @@
   </div>
 
   <div class="col-5">
-   <%= link_to "情報を編集する", edit_drinks_path(@drink.id) %><br>
+   平均<%= @drink.avg_score %>点<% @drink.review_score_percentage %>(<%= @drink.reviews.count %>件のレビュー)
+
     <table class="table table-bordered">
      <tbody>
       <tr>
@@ -39,6 +40,7 @@
       </tr>
       </tbody>
    </table>
+    <%= link_to "このお酒の情報を編集する", edit_drinks_path(@drink.id) %>
    <div class="box4 border">
      <%= @drink.introduction %>
    </div>
@@ -73,8 +75,11 @@
    <table class="table table-bordered">
      <tbody>
        <tr>
-         <td>★</td>
-         <td><%= f.text_field :rating %></td>
+         <td>評価</td>
+         <td>
+          <%= f.select :rating, [["1",1],["2",2],["3",3],["4",4],["5",5]] %>
+          </div>
+          </td>
        </tr>
      </tbody>
    </table>

@@ -7,6 +7,16 @@
 
      email<div class="mr-3"><%= @user.email %></div>
      ユーザーネーム<div class="mr-3"><%= @user.name %></div>
+     会員ステータス<div class="mr-3">
+       <% if @user.is_active == true %>
+        アカウント停止中
+        <% else %>
+        <strong class="text-success">有効</strong>
+        <% end %>
+     </div>
+  </div>
+  <div class="col">
+    <%= link_to "情報を編集する", edit_admin_user_path %>
   </div>
   <div class="col introduction-box border border-dark">
     <%= @user.introduction %>
@@ -20,7 +30,7 @@
      <div class="d-flex justify-content-between">
        <%= review.drink.name %>
        評価★<%= review.rating %>
-       <%= review.title %>
+       <%= link_to review.title, admin_review_path(review.id) %>
        <%= review.user.name %>
      </div>
      <div class="d-flex justify-content-start">
@@ -28,4 +38,5 @@
       <div class="impression ml-2 border"><%= review.impression %></div>
      </div>
     </div>
+     <%= link_to "このレビューを削除する", admin_reviews_destroy_path(review.id), method: :delete, data: {confirm: "本当に削除しますか？"}, class:"btn btn-danger" %>
    <% end %>

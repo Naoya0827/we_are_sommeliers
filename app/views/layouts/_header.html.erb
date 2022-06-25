@@ -24,17 +24,15 @@
             </li>
             <% elsif admin_signed_in? %>
             <h3 class="mr-3 mt-2">管理者</h3>
-             <li class="nav-item">
+             <li class="nav-item mr-2">
                <%= link_to "ジャンル追加・一覧", admin_genres_path, class:"text-dark border border-dark rounded" %><br>
                <%= link_to "エリア追加・一覧", admin_areas_path, class:"text-dark border border-dark rounded" %>
              </li>
              <li class="nav-item mr-2">
-              <%= link_to 'お酒を探す', drinks_path, class: 'text-dark border border-dark rounded' %><br>
-              <%= link_to '販売元を探す', creators_path, class: 'text-dark border border-dark rounded' %>
+              <%= link_to "会員一覧", admin_users_path, class:"text-dark border border-dark rounded" %>
             </li>
             <li class="nav-item mr-2">
-              <%= link_to 'お酒を登録する', new_drinks_path, class: 'text-dark border border-dark rounded' %><br>
-              <%= link_to '販売元を登録する', new_creators_path, class: 'text-dark border border-dark rounded' %>
+
             </li>
             <li class="nav-item">
               <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class:"text-danger border border-dark rounded" %>

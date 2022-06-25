@@ -11,7 +11,7 @@
     <% @areas.each do |area| %>
     <tr>
       <td><%= area.name %></td>
-      <td><%= link_to "編集する", admin_edit_areas_path(area.id) %></td>
+      <td><%= link_to "編集する", edit_admin_area_path(area.id) %></td>
     </tr>
   </tbody>
   <% end %>
