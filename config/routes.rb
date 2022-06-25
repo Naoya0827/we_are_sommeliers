@@ -15,11 +15,11 @@ Rails.application.routes.draw do
   }
 
   patch 'users/withdraw' => 'users#withdraw'
-  get 'users/:id' => 'users#show', as:'users'
-  post 'relationships/:id' => 'relationships#create', as:'follow'
-  delete 'relationships/:id' => 'relationships#delete', as:'unfollow'
-  resource :relationships, only: [:create, :destroy]
-
+  resources :users, only:[:show, :index] do
+    resource :relationships, only: [:create, :destroy]
+    get :followeds, on: :member
+    get :followers, on: :member
+  end
 
   get 'my_page' => 'users#my_page', as:'my_page'
   patch 'users/:id' => 'users#update', as:'update_users'

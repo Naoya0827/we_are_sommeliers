@@ -34,7 +34,7 @@
         <%= attachment_image_tag @review.user, :image, :fill, 150, 100, fallback: "no_image.jpeg", class:"border rounded" %>
       </div>
       <div class="user-name d-flex align-items-center">
-        <h5><%= link_to @review.user.name, users_path(@review.user.id) %></h5>
+        <h5><%= link_to @review.user.name, user_path(@review.user.id) %></h5>
       </div>
      </div>
    </div>

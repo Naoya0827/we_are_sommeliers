@@ -23,9 +23,9 @@ class UsersController < ApplicationController
   def withdraw
   end
 
-  def followings
+  def followeds
     user = User.find(params[:id])
-    @users = user.followings
+    @users = user.followeds
   end
 
   def followers

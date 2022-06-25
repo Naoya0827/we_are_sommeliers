@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :reviewcomments, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :favorite_drinks, dependent: :destroy
+
   has_many :relationships, foreign_key: :followed_id
   has_many :followeds, through: :relationships, source: :follower
 
