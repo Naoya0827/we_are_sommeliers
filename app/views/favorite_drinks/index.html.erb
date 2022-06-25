@@ -8,7 +8,7 @@
   <table class="">
     <thead>
       <tr>
-        <td width="100">商品名</td>
+        <td width="250">商品名</td>
         <td width="100">ジャンル</td>
         <td width="150">アルコール</td>
         <td>本文</td>
@@ -20,7 +20,7 @@
         <td><%= link_to favorite_drink.drink.name, drink_path(favorite_drink.drink.id) %></td>
         <td><%= favorite_drink.drink.genre.name %></td>
         <td><%= favorite_drink.drink.alcohol %></td>
-        <td><%= favorite_drink.drink.introduction.truncate(40) %></td>
+        <td><%= favorite_drink.drink.introduction.truncate(25) %></td>
       </tr>
        <% end %>
     </tbody>

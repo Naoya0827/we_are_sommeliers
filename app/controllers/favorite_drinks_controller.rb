@@ -9,9 +9,6 @@ class FavoriteDrinksController < ApplicationController
     @favorite_drink = FavoriteDrink.find_by(user_id: current_user.id, drink_id: params[:id])
     @favorite_drink.destroy
     redirect_to request.referer
-
-
-
   end
 
   def index

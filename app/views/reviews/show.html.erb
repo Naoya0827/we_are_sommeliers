@@ -4,10 +4,9 @@
     <h3><%= link_to @review.drink.name, drink_path(@review.drink.id) %>のレビュー</h3>
     <div class="ml-5">
       <% if @review.favorited_by?(current_user) %>
-       <%= link_to "お気に入り解除", favoriteclass:"btn btn-denger" %>
-
+       <%= link_to "お気に入り解除", review_favorites_destroy_path(@review.id), method: :delete, class:"btn btn-denger" %>
       <% else %>
-       <%= form_with model: @favorite, url: favorites_create_path, local:true do |f| %>
+       <%= form_with model: @favorite, url: review_favorites_create_path(@review.id), local:true do |f| %>
         <%= f.hidden_field :review_id, :value => @review.id %>
         <%= f.hidden_field :user_id, :value => @user.id %>
         <%= f.hidden_field :drink_id, :value => @review.drink.id %>

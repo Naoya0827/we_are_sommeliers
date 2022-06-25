@@ -6,7 +6,7 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
-    @favorite = Favorite.find_by(user_id: current_user.id, review_id: params[:id], drink_id: params[:id.drink.id])
+    @favorite = Favorite.find_by(user_id: current_user.id, review_id: params[:id])
     @favorite.destroy
     redirect_to request.referer
   end
