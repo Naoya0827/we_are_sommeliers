@@ -8,10 +8,13 @@ Rails.application.routes.draw do
     registrations: 'admins/registrations'
   }
   get 'users/edit/:id' => 'users#edit', as:'users_edit'
+
   devise_for :users, controllers: {
-    sessions: 'users/sessions',
-    passwords: 'users/passwords',
-    registrations: 'users/registrations'
+   registrations: 'users/registrations'
+    }, controllers: {
+       sessions: 'users/sessions',
+       passwords: 'users/passwords',
+       registrations: 'users/registrations'
   }
 
   patch 'users/withdraw' => 'users#withdraw'
@@ -58,10 +61,6 @@ Rails.application.routes.draw do
   end
   get 'favorites' => 'favorites#index', as:'favorites_index'
 
-
-
-
-
  namespace :admin do
    resources :users, only:[:index, :show, :edit, :update, :destroy]
    resources :reviews, only:[:index, :show]
@@ -70,4 +69,5 @@ Rails.application.routes.draw do
    resources :genres, only:[:create, :update, :index, :edit]
    resources :review_comments, only:[:destroy]
  end
+ post '/guests/guest_sign_in', to: 'guests#new_guest'
 end
