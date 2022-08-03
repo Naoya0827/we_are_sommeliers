@@ -20,7 +20,7 @@
               <%= link_to 'マイページ', my_page_path(current_user.id), class: 'text-dark' %>
             </li>
             <li class="nav-item">
-              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'text-dark' %>
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'text-danger border border-dark rounded ml-1' %>
             </li>
             <% elsif admin_signed_in? %>
             <h3 class="mr-3 mt-2">管理者</h3>
